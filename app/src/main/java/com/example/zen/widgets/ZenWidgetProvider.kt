@@ -26,13 +26,21 @@ class ZenWidgetProvider : AppWidgetProvider() {
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
         val action = intent.action
+        android.util.Log.d("ZenWidget", "onReceive called with action: $action")
         val repo = ZenRepository.getInstance(context)
         if (action == ACTION_WIDGET_PLUS) {
-            val habitId = intent.getStringExtra(EXTRA_HABIT_ID) ?: return
+            val habitId = intent.getStringExtra(EXTRA_HABIT_ID)
+            android.util.Log.d("ZenWidget", "Plus button clicked for habit ID: $habitId")
+            if (habitId.isNullOrEmpty()) {
+                android.util.Log.e("ZenWidget", "Habit ID is null or empty!")
+                return
+            }
             repo.getHabit(habitId)?.let { habit ->
+                android.util.Log.d("ZenWidget", "Adding tick for habit: ${habit.title}, increment: ${habit.defaultIncrement}")
                 repo.addTick(habitId, habit.defaultIncrement)
                 WidgetUpdateHelper.updateAllWidgets(context)
-            }
+                android.util.Log.d("ZenWidget", "Widget updated successfully")
+            } ?: android.util.Log.e("ZenWidget", "Habit not found for ID: $habitId")
         }
     }
 
@@ -109,18 +117,21 @@ class ZenWidgetProvider : AppWidgetProvider() {
                     rv.setViewVisibility(com.example.zen.R.id.layoutHabitControls, View.VISIBLE)
                     rv.setViewVisibility(com.example.zen.R.id.layoutSelectedHabitCard, View.VISIBLE)
                     
-                    // Set up click listeners for plus/minus buttons
+                    // Set up click listeners for plus buttons
+                    // Use unique request codes based on widget ID and habit ID hashcode to avoid conflicts
                     val plusIntent = Intent(context, ZenWidgetProvider::class.java).apply {
                         action = ACTION_WIDGET_PLUS
                         putExtra(EXTRA_HABIT_ID, selectedHabitId)
                     }
+                    val requestCode = (appWidgetId.toString() + selectedHabitId).hashCode()
                     val plusPendingIntent = PendingIntent.getBroadcast(
                         context, 
-                        0, 
+                        requestCode, 
                         plusIntent, 
                         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                     )
                     rv.setOnClickPendingIntent(com.example.zen.R.id.btnWidgetPlus, plusPendingIntent)
+                    rv.setOnClickPendingIntent(com.example.zen.R.id.btnWidgetQuickAdd, plusPendingIntent)
                 } else {
                     // Selected habit not found
                     setupNoHabitSelected(rv)
