@@ -33,13 +33,24 @@
                 android:layout_marginBottom="@dimen/spacing_lg" />
 
             <!-- Mood Entry Notifications Settings -->
-            <TextView
-                style="@style/Zen.Text.Subtitle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xl"
                 android:layout_marginBottom="@dimen/spacing_lg"
-                android:text="Mood Entry Notifications" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/Zen.Text.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mood Entry Notifications" />
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switchMoodNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardMoodSchedule"
@@ -139,13 +150,24 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Hydration Reminders Settings -->
-            <TextView
-                style="@style/Zen.Text.Subtitle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xl"
                 android:layout_marginBottom="@dimen/spacing_lg"
-                android:text="Hydration Reminders" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/Zen.Text.Subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hydration Reminders" />
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switchHydrationNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardHydrationSchedule"

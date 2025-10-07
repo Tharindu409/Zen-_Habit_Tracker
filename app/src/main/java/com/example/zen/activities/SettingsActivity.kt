@@ -21,6 +21,8 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var repo: ZenRepository
 
     private lateinit var switchStepSensor: MaterialSwitch
+    private lateinit var switchMoodNotifications: MaterialSwitch
+    private lateinit var switchHydrationNotifications: MaterialSwitch
 
     private lateinit var etMoodStart: TextInputEditText
     private lateinit var etMoodInterval: TextInputEditText
@@ -54,6 +56,8 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun bindViews() {
         switchStepSensor = findViewById<MaterialSwitch>(R.id.switchStepSensor)
+        switchMoodNotifications = findViewById(R.id.switchMoodNotifications)
+        switchHydrationNotifications = findViewById(R.id.switchHydrationNotifications)
 
         etMoodStart = findViewById(R.id.etMoodStart)
         etMoodInterval = findViewById(R.id.etMoodInterval)
@@ -76,6 +80,8 @@ class SettingsActivity : AppCompatActivity() {
     private fun render() {
         val s = repo.getSettings()
         switchStepSensor.isChecked = s.stepSensorEnabled
+        switchMoodNotifications.isChecked = s.notificationsMood
+        switchHydrationNotifications.isChecked = s.notificationsHydration
 
         etMoodStart.setText(s.moodStartTime)
         etMoodEnd.setText(s.moodEndTime)
@@ -146,6 +152,30 @@ class SettingsActivity : AppCompatActivity() {
             } else {
                 stopStepService()
             }
+        }
+
+        switchMoodNotifications.setOnCheckedChangeListener { _, isChecked ->
+            val cur = repo.getSettings()
+            val anyEnabled = isChecked || cur.notificationsHydration
+            val updated = cur.copy(
+                notificationsAll = anyEnabled,
+                notificationsMood = isChecked
+            )
+            repo.saveSettings(updated)
+            setMoodScheduleEnabled(isChecked)
+            rescheduleMoodAlarms()
+        }
+
+        switchHydrationNotifications.setOnCheckedChangeListener { _, isChecked ->
+            val cur = repo.getSettings()
+            val anyEnabled = isChecked || cur.notificationsMood
+            val updated = cur.copy(
+                notificationsAll = anyEnabled,
+                notificationsHydration = isChecked
+            )
+            repo.saveSettings(updated)
+            setHydrationScheduleEnabled(isChecked)
+            rescheduleHydrationAlarms()
         }
 
         etMoodStart.setOnClickListener { pickTime(etMoodStart) }
