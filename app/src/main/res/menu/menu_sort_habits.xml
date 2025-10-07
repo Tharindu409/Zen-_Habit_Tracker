@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sort_by_name"
+        android:title="Sort by Name" />
+    <item
+        android:id="@+id/sort_by_progress"
+        android:title="Sort by Progress" />
+    <item
+        android:id="@+id/sort_by_streak"
+        android:title="Sort by Streak" />
+</menu>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home Dashboard Landscape: greeting, cards, today list, navigation rail -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <!-- Navigation Rail -->
+    <com.google.android.material.navigationrail.NavigationRailView
+        android:id="@+id/navRail"
+        android:layout_width="@dimen/nav_rail_width"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/spacing_lg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottom_nav" />
+
+    <!-- Main Content -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toEndOf="@id/navRail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorBackground"
+                app:titleTextColor="@color/textPrimary" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_lg">
+
+                <!-- Greeting -->
+                <TextView
+                    android:id="@+id/tvGreeting"
+                    style="@style/Zen.Text.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_xl"
+                    android:text="Good morning, User" />
+
+                <!-- Cards Section in Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2">
+
+                    <!-- Habits Progress Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardHabitsProgress"
+                        style="@style/Zen.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding"
+                            android:gravity="center">
+
+                            <TextView
+                                style="@style/Zen.Text.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Progress" />
+
+                            <TextView
+                                android:id="@+id/tvHabitsProgress"
+                                style="@style/Zen.Text.Title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2 / 4" />
+
+                            <ProgressBar
+                                android:id="@+id/progressRingHabits"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="@dimen/progress_size"
+                                android:layout_height="@dimen/progress_size"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:progress="50" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Water Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardWater"
+                        style="@style/Zen.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding"
+                            android:gravity="center">
+
+                            <TextView
+                                style="@style/Zen.Text.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="💧 Water" />
+
+                            <TextView
+                                android:id="@+id/tvWaterAmount"
+                                style="@style/Zen.Text.Body"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="750 / 2000 mL" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnWaterPlus"
+                                style="@style/Widget.Material3.Button.IconButton.Filled"
+                                android:layout_width="@dimen/touch_target_min"
+                                android:layout_height="@dimen/touch_target_min"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:contentDescription="@string/cd_add_water"
+                                app:icon="@drawable/ic_add" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Steps Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSteps"
+                        style="@style/Zen.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding"
+                            android:gravity="center">
+
+                            <TextView
+                                style="@style/Zen.Text.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="👣 Steps" />
+
+                            <TextView
+                                android:id="@+id/tvStepsAmount"
+                                style="@style/Zen.Text.Body"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1,200 / 6,000" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnStepsAdd"
+                                style="@style/Widget.Material3.Button.IconButton.Filled"
+                                android:layout_width="@dimen/touch_target_min"
+                                android:layout_height="@dimen/touch_target_min"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:contentDescription="@string/cd_add_steps"
+                                app:icon="@drawable/ic_add" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Mood Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMood"
+                        style="@style/Zen.Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding"
+                            android:gravity="center">
+
+                            <TextView
+                                style="@style/Zen.Text.Subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mood" />
+
+                            <TextView
+                                android:id="@+id/tvLastMood"
+                                style="@style/Zen.Text.Body"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="😊" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnMoodQuickAdd"
+                                style="@style/Widget.Material3.Button.IconButton.Filled"
+                                android:layout_width="@dimen/touch_target_min"
+                                android:layout_height="@dimen/touch_target_min"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:contentDescription="@string/cd_add_mood"
+                                app:icon="@drawable/ic_add" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
+
+                <!-- Today's Habits Section -->
+                <TextView
+                    style="@style/Zen.Text.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xl"
+                    android:layout_marginBottom="@dimen/spacing_lg"
+                    android:text="@string/todays_habits" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTodayHabits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- Upcoming Reminders -->
+                <TextView
+                    style="@style/Zen.Text.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xl"
+                    android:layout_marginBottom="@dimen/spacing_lg"
+                    android:text="@string/upcoming_reminders" />
+
+                <TextView
+                    android:id="@+id/tvUpcomingReminder"
+                    style="@style/Zen.Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_upcoming_reminders" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

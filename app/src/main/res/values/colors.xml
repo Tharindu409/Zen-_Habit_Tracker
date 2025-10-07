@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Zen Color Theme -->
+    <color name="colorPrimary">#1A4C8B</color>
+    <color name="colorPrimaryVariant">#1A4C8B</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="background">#F9FAFB</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="textPrimary">#1E1E1E</color>
+    <color name="textSecondary">#6B7280</color>
+    <color name="accent">#4A90E2</color>
+    <color name="dark_background">#1A1A1A</color>
+    <color name="dark_surface">#2D2D2D</color>
+    <color name="dark_cardBackground">#3A3A3A</color>
+    <color name="dark_textPrimary">#F9FAFB</color>
+    <color name="dark_textSecondary">#9CA3AF</color>
+    <color name="success">#56C596</color>
+    <color name="warning">#FFC107</color>
+    <color name="danger">#F87171</color>
+    <color name="bottom_nav_bg">#FFFFFF</color>
+
+    <!-- Secondary Colors -->
+    <color name="colorSecondary">#2E5DA8</color>
+    <color name="colorSecondaryVariant">#2E5DA8</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+
+    <!-- Background Colors -->
+    <color name="colorBackground">#F9FAFB</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnBackground">#1E1E1E</color>
+    <color name="colorOnSurface">#1E1E1E</color>
+
+    <!-- Card and Surface Colors -->
+    <color name="cardBackgroundElevated">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="textTertiary">#9CA3AF</color>
+
+    <!-- Status Colors -->
+    <color name="colorError">#F87171</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorSuccess">#56C596</color>
+    <color name="colorWarning">#FFC107</color>
+
+    <!-- Additional status colors -->
+    <color name="primary">#1A4C8B</color>
+    <color name="primaryContainer">#E8F0FF</color>
+
+    <!-- Progress Colors -->
+    <color name="progressBackground">#E5E7EB</color>
+    <color name="progressForeground">#1A4C8B</color>
+
+    <!-- Divider and Border Colors -->
+    <color name="dividerColor">#E5E7EB</color>
+    <color name="borderColor">#E5E7EB</color>
+
+    <!-- Bottom Navigation -->
+    <color name="bottomNavBackground">#FFFFFF</color>
+    <color name="bottomNavElevation">#1F000000</color>
+
+    <!-- Chip Colors -->
+    <color name="chipBackground">#F3F4F6</color>
+    <color name="chipBackgroundSelected">#1A4C8B</color>
+    <color name="chipText">#374151</color>
+    <color name="chipTextSelected">#FFFFFF</color>
+
+    <!-- Traditional Android Colors (for backwards compatibility) -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+</resources>

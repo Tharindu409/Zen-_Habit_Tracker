@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background_gradient"
+    android:padding="12dp">
+
+    <!-- Top Section: Overall Progress with Gradient Background -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/widget_top_section_bg"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp">
+
+        <!-- Cheer Message -->
+        <TextView
+            android:id="@+id/tvWidgetCheerMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/keep_it_up"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#40000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Progress Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/daily_progress"
+                android:textColor="#E0FFFFFF"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/tvWidgetProgressCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_2_5"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-bold" />
+
+        </LinearLayout>
+
+        <!-- Modern Progress Bar with White Background -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/progress_bg_white">
+
+            <ProgressBar
+                android:id="@+id/progressBarWidget"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:progress="40"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_widget_green"
+                android:background="@android:color/transparent" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Card: Selected Habit Details -->
+    <LinearLayout
+        android:id="@+id/layoutSelectedHabitCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/widget_habit_card_bg"
+        android:padding="16dp"
+        android:visibility="visible">
+
+        <!-- Habit Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+
+            <!-- Emoji Container with Background -->
+            <FrameLayout
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/widget_emoji_bg"
+                android:layout_marginEnd="12dp">
+
+                <TextView
+                    android:id="@+id/tvWidgetHabitEmoji"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="💧"
+                    android:textSize="28sp"
+                    android:gravity="center" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWidgetHabitTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Water"
+                    android:textColor="#1E1E1E"
+                    android:textSize="17sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:id="@+id/tvWidgetHabitProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6 / 8 cups"
+                    android:textColor="#6B7280"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+            <!-- Quick Add Progress Button -->
+            <ImageButton
+                android:id="@+id/btnWidgetQuickAdd"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_add"
+                android:background="@drawable/widget_plus_button_bg"
+                android:tint="#1A4C8B"
+                android:scaleType="centerInside"
+                android:padding="8dp"
+                android:contentDescription="@string/add_progress" />
+
+        </LinearLayout>
+
+        <!-- Habit Progress Bar with White Background -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/progress_bg_subtle"
+            android:layout_marginBottom="14dp">
+
+            <ProgressBar
+                android:id="@+id/progressBarHabit"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:progress="75"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_widget_habit"
+                android:background="@android:color/transparent" />
+
+        </FrameLayout>
+
+        <!-- Control Buttons -->
+        <LinearLayout
+            android:id="@+id/layoutHabitControls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnWidgetPlus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_add"
+                android:background="@drawable/widget_button_bg"
+                android:tint="@color/colorPrimary"
+                android:contentDescription="Increase" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
