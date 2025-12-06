@@ -6,11 +6,7 @@ It's lightweight, fast, and easy to use — built with simple progress input, po
 ---
 
 ## ✨ Features & Highlights
-🌑 Dark-Themed Preview
-
-(Optional — just upload your screenshots later)
-
-<p align="center"> <img src="https://via.placeholder.com/250x500/000000/FFFFFF?text=Home+Screen" width="200" /> <img src="https://via.placeholder.com/250x500/000000/FFFFFF?text=Habits" width="200" /> <img src="https://via.placeholder.com/250x500/000000/FFFFFF?text=Mood+Log" width="200" /> </p>
+ 
 
 ### ✅ Habit Tracking
 - Create habits with custom targets and units (steps, minutes, mL, etc.)
