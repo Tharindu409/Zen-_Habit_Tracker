@@ -1,122 +1,138 @@
-🧘 Zen - Habit, Mood, and Wellness Tracker
-Zen is a modern Android application designed to help users build consistent habits, track their daily mood, and visualize progress with a clean, glanceable UI. It's lightweight, fast, and user-friendly, featuring simple progress input and a polished profile.
+# 🧘 Zen – Habit, Mood & Wellness Tracker
 
+**Zen** is a modern Android app designed to help users build consistent habits, track their mood, and visualize personal progress through a clean and glanceable UI.  
+It's lightweight, fast, and easy to use — built with simple progress input, polished screens, and a compact home screen widget.
 
+---
 
-✨ Features and Highlights
+## ✨ Features & Highlights
 
-Habit Tracking: Track daily habits with customizable targets, units (steps, minutes, mL, etc.), and quick increments. Tick progress via detail pages, lists, or the home screen widget.
+### ✅ Habit Tracking
+- Create habits with custom targets and units (steps, minutes, mL, etc.)
+- Quick “+” increments from the habit list, detail page, or widget  
+- View daily progress and streaks
 
+### 😊 Mood Logging
+- Emoji-first mood selection  
+- Add optional notes  
+- View recent mood stats and lightweight trends
 
+### 📊 Progress Visualization
+- Clean profile with **total habits**, **best streak**, and daily progress  
+- Minimal progress bars for tidy, compact visual summaries
 
+### 📱 Home Screen Widget
+- Shows overall habit progress  
+- Choose a favorite habit to control via the widget  
+- One-tap **+** button to add a tick instantly
 
-Mood Logging: Log moods using an emoji-first experience and view recent stats and trends.
+### 🔔 Smart Reminders
+- Scheduled notifications for mood logging & hydration  
+- Reschedules automatically after device restart
 
+### 🔐 Local Persistence
+- All data stored locally using **SharedPreferences** via `ZenRepository`  
+- No cloud sync — simple and privacy-friendly
 
+### 🚶 Step Tracking
+- Optional step sensor integration for step-related habits
 
-Progress Visualization: Clean profile view displaying compact stats like streaks and habit totals. Lightweight progress bars are used for a tidy visual summary, avoiding heavy charts.
+---
 
+## 🎬 App Demo (Short Video)
 
+*Show a quick demo of the app (habit tracking, mood logging, widget usage):*  
+👉 **Insert your video link here**  
+You may embed a YouTube/Vimeo video.
 
+---
 
+## 🏗️ App Workflow (High-Level)
 
-Home Screen Widget: A compact widget shows overall completion and a selected habit with a quick + button to add a tick and immediately refresh the widget.
+1. **Splash Screen**
+2. **Onboarding → Signup**  
+   - Collects basic user info  
+   - Seeds default habits and settings
+3. **Home Screen**  
+   - Bottom navigation to **Habits**, **Mood**, **Profile**, **Settings**
+4. **Tracking**  
+   - Add/Edit habits  
+   - Tick progress from Habits screen or Widget
+5. **Notifications**  
+   - Reminders for mood logs and hydration
+6. **Profile & Settings**  
+   - Compact stats display  
+   - Configure reminders, widget habit, and step sensor
 
+---
 
+## ⚙️ Build & Run
 
+### Requirements
+- **Android Studio Giraffe+**
+- **Compile SDK: 36**
 
+### Steps
+1. Clone the repository  
+2. Open the project in Android Studio  
+3. Select a device/emulator  
+4. Click **Run**  
+5. Defaults will be auto-seeded on the first launch
 
-Reminders: Notification scheduling for mood entries and hydration reminders.
+---
 
+## 📂 Project Structure & Technology
 
+Zen uses a clean, lightweight architecture focused on readability.
 
-Local Persistence: Data is stored locally using SharedPreferences via the ZenRepository. There is no cloud backup.
+### 🧩 Language  
+- **Kotlin**
 
+### 🗂️ Persistence  
+- `SharedPreferences` through **ZenRepository.kt**
 
+### 🧱 Core Data Models  
+- `Habit.kt`  
+- `MoodEntry.kt`  
+- `AppSettings.kt`
 
+### 📌 Major Components
 
-Step Tracking: Toggle support for the step sensor for relevant habits.
+#### 🎛 Activities  
+- `HomeActivity.kt`  
+- `HabitsActivity.kt`  
+- `MoodActivity.kt`  
+- `ProfileActivity.kt`  
+- `SettingsActivity.kt`  
+- `SignupActivity.kt`  
+- `OnboardingActivity.kt`
 
+#### 🔔 Receivers  
+- `ReminderReceiver.kt` (handles alarms & notifications)  
+- `BootReceiver.kt` (re-schedules reminders on reboot)
 
-🎬 App Demo (Short Video)
-(Insert a small, not very long video demonstrating the app's key functions like tracking a habit, logging a mood, and using the widget.)
+#### 🛰 Services  
+- `StepService.kt` (step sensor integration)
 
-[Insert YouTube/Vimeo embed code or a link to your short demo video here]
+#### 🧩 Widget  
+- `ZenWidgetProvider.kt` (home screen widget logic)
 
-🏗️ App Workflow (High-level)
+#### ⏳ Workers  
+- `MidnightWorker.kt` (resets daily counters & maintenance)
 
-Splash Screen.
+### 🔧 Shared Utilities  
+- **ZenRepository** – all persistence & domain logic  
+- **DateUtils** – date formatting & streak calculations  
+- **AlarmScheduler** – hydration/mood reminders  
+- **PulseNotificationHelper** – building notifications
 
+---
 
-Onboarding/Signup: First-time users are routed through onboarding screens and then to the signup process to collect initial info and seed default data.
+## 📄 License  
+This project is licensed under the **MIT License**.
 
+---
 
+## 💚 Thank You for Using Zen  
+Feel free to open issues or suggest new features!
 
-
-Home: The main hub, hosting bottom navigation to Habits, Mood, Profile, and Settings.
-
-
-
-Tracking: Add/Edit habits and tick progress directly from the Home/Habits screens or the customizable Widget.
-
-
-Notifications: If enabled, notifications remind you to log moods or drink water.
-
-
-Profile & Settings: Profile shows compact stats, and Settings allows configuration of notifications, schedules, and the widget habit.
-
-⚙️ Build and Run
-Prerequisites
-
-Android Studio Giraffe+ recommended.
-
-Compile SDK: 36.
-
-Instructions
-Clone the repository.
-
-Open the project in Android Studio.
-
-Set your device or emulator.
-
-Click Run.
-
-The application will automatically seed default habits and initial state on first launch.
-
-
-📂 Project Structure and Technology
-The codebase favors clarity over heavy architecture, utilizing a repository-based approach with activities and lightweight custom views.
-
-Language: Kotlin
-
-
-Persistence: SharedPreferences via ZenRepository.kt.
-
-
-Data Models: Key models include Habit.kt, MoodEntry.kt, and AppSettings.kt.
-
-
-Core Components:
-
-
-Activities: Dedicated activities for each major screen (e.g., HomeActivity.kt, HabitsActivity.kt, MoodActivity.kt).
-
-
-Receivers: ReminderReceiver.kt (for alarms) and BootReceiver.kt (for re-scheduling on boot).
-
-
-
-
-
-Service: StepService.kt for step sensor integration.
-
-
-
-Widget: ZenWidgetProvider.kt manages the home screen widget functionality.
-
-
-
-Workers: MidnightWorker.kt performs daily rollovers/maintenance.
-
-
-Shared Utilities: Core logic is centralized in utilities like ZenRepository (persistence), DateUtils (date/time), AlarmScheduler (reminders), and PulseNotificationHelper (notifications).
