@@ -40,6 +40,7 @@ Step Tracking: Toggle support for the step sensor for relevant habits.
 
 
 🎬 App Demo (Short Video)
+
  
 
 🏗️ App Workflow (High-level)
