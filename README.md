@@ -43,7 +43,7 @@ It's lightweight, fast, and easy to use — built with simple progress input, po
 ## 🎬 App Demo (Short Video)
 
 *Show a quick demo of the app (habit tracking, mood logging, widget usage):*  
-👉 **Insert your video link here**  
+👉 ** **  
 You may embed a YouTube/Vimeo video.
 
 ---
